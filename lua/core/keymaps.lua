@@ -49,6 +49,23 @@ keymap.set("n", "-", "Nzz", opts)
 keymap.set("n", "=", "nzz", opts)
 keymap.set("n", "<leader><CR>", ":nohl<CR>", opts)
 
+--markdown快捷键
+keymap.set("i", ",f", "<Esc>/<++><CR>:nohlsearch<CR>c4l", opts)
+keymap.set("i", ",n", "---<Enter><Enter>", opts)
+keymap.set("i", ",b", "**** <++><Esc>F*hi", opts)
+keymap.set("i", ",s", "~~~~ <++><Esc>F~hi", opts)
+keymap.set("i", ",i", "** <++><Esc>F*i", opts)
+keymap.set("i", ",d", "`` <++><Esc>F`i", opts)
+keymap.set("i", ",c", "```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA", opts)
+keymap.set("i", ",h", "====<Space><++><Esc>F=hi", opts)
+keymap.set("i", ",p", "![](<++>) <++><Esc>F[a", opts)
+keymap.set("i", ",a", "[](<++>) <++><Esc>F[a", opts)
+keymap.set("i", ",1", "#<Space><Enter><++><Esc>kA", opts)
+keymap.set("i", ",2", "##<Space><Enter><++><Esc>kA",opts)
+keymap.set("i", ",3", "###<Space><Enter><++><Esc>kA", opts)
+keymap.set("i", ",4", "####<Space><Enter><++><Esc>kA", opts)
+keymap.set("i", ",l", "--------<Enter>", opts)
+
 ------ 插件 ------
 -- nvim-tree
 keymap.set("n", "tr", ":NvimTreeToggle<CR>")
