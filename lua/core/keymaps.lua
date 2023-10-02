@@ -74,4 +74,4 @@ keymap.set("n", "J", ":bprevious<CR>")
 
 -- markdown-preview
 keymap.set("n", "r", ":MarkdownPreview<CR>")
-
+keymap.set("n","<LEADER>tm", ":TableModeToggle")
