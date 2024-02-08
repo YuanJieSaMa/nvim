@@ -104,8 +104,6 @@ keymap.set("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", { noremap = true, si
 keymap.set("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", { noremap = true, silent = true })
 keymap.set("n", "<leader>ca", ":BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>", { noremap = true, silent = true })
 keymap.set("n", "<leader>cc", ":BufferLinePickClose<CR>", { noremap = true, silent = true })
---persistence--
-vim.cmd [[autocmd VimEnter * lua require("persistence").load()]]
 --Telescopw--
 keymap.set("n", "<leader>f", ":Telescope find_files<CR>", opts)
 keymap.set("n", "<leader>h", ":Telescope help_tags<CR>", opts)

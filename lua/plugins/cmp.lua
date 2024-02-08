@@ -1,5 +1,6 @@
 return {
   {
+    event = "VeryLazy",
     "hrsh7th/nvim-cmp",
     config = function()
       local has_words_before = function()
@@ -97,18 +98,28 @@ return {
     end,
   },
   {
+    event = "VeryLazy",
+
     "hrsh7th/cmp-nvim-lsp",
   },
   {
+    event = "VeryLazy",
+
     "hrsh7th/cmp-buffer",
   },
   {
+    event = "VeryLazy",
+
     "hrsh7th/cmp-path",
   },
   {
+    event = "VeryLazy",
+
     "hrsh7th/cmp-cmdline",
   },
   {
+    event = "VeryLazy",
+
     "L3MON4D3/LuaSnip",
   }
 }
