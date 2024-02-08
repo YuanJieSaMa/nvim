@@ -85,6 +85,7 @@ opt.splitbelow = true
 -- 搜索
 opt.ignorecase = true
 opt.smartcase = true
+-- 启用Netrw插件
 
 
 
