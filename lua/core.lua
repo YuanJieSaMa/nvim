@@ -116,3 +116,6 @@ vim.keymap.set('n', '<leader>s', function()
 end, opts)
 --Git--
 vim.cmd.cnoreabbrev([[git Git]])
+--markdwon-preview--
+keymap.set("n", "<leader>p", ":MarkdownPreview<CR>", opts)
+keymap.set("n", "<leader>sp", ":MarkdownPreviewStop<CR>", opts)
