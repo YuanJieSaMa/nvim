@@ -10,8 +10,8 @@ local nv = { "n", "v" }
 
 ------ 视觉模式 ------
 --单行或多行移动
-keymap.set("v", "<C-s>", ":m '>+1<CR>gv=gv", opts)
-keymap.set("v", "<C-w>", ":m '<-2<CR>gv=gv", opts)
+keymap.set("v", "<C-k>", ":m '>+1<CR>gv=gv", opts)
+keymap.set("v", "<C-i>", ":m '<-2<CR>gv=gv", opts)
 
 ------ 正常模式 ------
 --新增窗口
