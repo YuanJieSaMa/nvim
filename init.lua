@@ -1,4 +1,5 @@
 require("core")
+vim.opt.termguicolors = true
 
 
 
@@ -27,4 +28,4 @@ require("lazy").setup("plugins", {
 
 
 
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme rose-pine-moon]]
