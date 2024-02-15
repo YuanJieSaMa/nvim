@@ -27,6 +27,7 @@
   "rose-pine": { "branch": "main", "commit": "f01ce3a71748a92997d266cfe2c985decd18c601" },
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
   "tokyonight.nvim": { "branch": "main", "commit": "610179f7f12db3d08540b6cc61434db2eaecbcff" },
+  "vim-closetag": { "branch": "master", "commit": "d0a562f8bdb107a50595aefe53b1a690460c3822" },
   "vim-fugitive": { "branch": "master", "commit": "fab00f7c0f3a08e860e39c7adeb8fbe849921a98" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }

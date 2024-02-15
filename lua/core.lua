@@ -119,3 +119,6 @@ vim.cmd.cnoreabbrev([[git Git]])
 --markdwon-preview--
 keymap.set("n", "<leader>p", ":MarkdownPreview<CR>", opts)
 keymap.set("n", "<leader>sp", ":MarkdownPreviewStop<CR>", opts)
+--bracey--
+keymap.set("n", "<leader>ww", ":Bracey<CR>", opts)
+keymap.set("n", "<leader>wr", ":BraceyReload<CR>", opts)
