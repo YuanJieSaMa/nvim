@@ -122,3 +122,6 @@ keymap.set("n", "<leader>sp", ":MarkdownPreviewStop<CR>", opts)
 --bracey--
 keymap.set("n", "<leader>ww", ":Bracey<CR>", opts)
 keymap.set("n", "<leader>wr", ":BraceyReload<CR>", opts)
+--lorem--
+keymap.set("n", "<leader>lo", ":Loremipsum ", opts)
+keymap.set("n", "<leader>nlo", ":Loreplace ", opts)
