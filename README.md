@@ -9,3 +9,5 @@
     'change quot*es'            cs'"            "change quotes"
     <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
     delete(functi*on calls)     dsf             function calls
+
+关于emmet-vim的使用教程请参考其[[官方手册]](https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL)
