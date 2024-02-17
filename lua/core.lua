@@ -125,3 +125,9 @@ keymap.set("n", "<leader>wr", ":BraceyReload<CR>", opts)
 --lorem--
 keymap.set("n", "<leader>lo", ":Loremipsum ", opts)
 keymap.set("n", "<leader>nlo", ":Loreplace ", opts)
+--emmet--
+vim.cmd
+[[let g:user_emmet_leader_key='<C-,>']]
+--markdown--
+keymap.set("n", "<leader>to", ":GenTocMarked<CR>", opts)
+keymap.set("n", "<leader>rto", ":UpdateToc<CR>", opts)
