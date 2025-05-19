@@ -4,7 +4,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "lua-language-server", -- 安装 Lua 语言服务器
+        "lua-language-server", -- Install Lua language server
       },
     },
     config = function(_, opts)
@@ -14,41 +14,41 @@ return {
         for _, tool in ipairs(opts.ensure_installed) do
           local p = mr.get_package(tool)
           if not p:is_installed() then
-            p:install() -- 如果工具未安装，则安装
+            p:install() -- Install the tool if it is not already installed
           end
         end
       end
       if mr.refresh then
-        mr.refresh(ensure_installed) -- 刷新注册表后确保工具已安装
+        mr.refresh(ensure_installed) -- Ensure tools are installed after refreshing the registry
       else
-        ensure_installed() -- 直接确保工具已安装
+        ensure_installed() -- Directly ensure tools are installed
       end
     end,
   },
 
   {
     'neovim/nvim-lspconfig',
-    dependencies = { 'saghen/blink.cmp' }, -- 添加依赖项
+    dependencies = { 'saghen/blink.cmp' }, -- Add dependencies
 
-    -- 示例：直接为每个 LSP 调用 setup
+    -- Example: Directly call setup for each LSP
     config = function()
       vim.diagnostic.config({
-        underline = false, -- 禁用下划线
-        signs = false, -- 禁用符号
-        update_in_insert = false, -- 插入模式中不更新诊断
-        virtual_text = { spacing = 2, prefix = "" }, -- 配置虚拟文本
-        severity_soft = true, -- 启用软性严重性
+        underline = false, -- Disable underline
+        signs = false, -- Disable signs
+        update_in_insert = false, -- Do not update diagnostics in insert mode
+        virtual_text = { spacing = 2, prefix = "" }, -- Configure virtual text
+        severity_soft = true, -- Enable soft severity
         float = {
-          border = "rounded", -- 使用圆角边框
+          border = "rounded", -- Use rounded borders
         },
       })
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local lspconfig = require('lspconfig')
 
-      lspconfig['lua_ls'].setup({ capabilities = capabilities }) -- 配置 Lua LSP
+      lspconfig['lua_ls'].setup({ capabilities = capabilities }) -- Configure Lua LSP
 
-      vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover) -- 设置快捷键以显示悬停信息
+      vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover) -- Set keymap to show hover information
     end
   }
 

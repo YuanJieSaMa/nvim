@@ -1,14 +1,14 @@
 return {
   {
     'saghen/blink.cmp',
-    -- 可选：为片段源提供片段支持
-    -- 如果您想使用 friendly-snippets，请取消注释以下行
+    -- Optional: Provide snippet support for the snippet source
+    -- Uncomment the following line if you want to use friendly-snippets
     -- dependencies = { 'rafamadriz/friendly-snippets' },
 
-    -- 使用发布标签下载预构建的二进制文件
+    -- Use release tags to download prebuilt binaries
     version = '1.*',
-    -- 或从源代码构建（需要 Rust 夜间版）：https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-    -- 取消注释以下一行以从源代码构建：
+    -- Or build from source (requires Rust nightly): https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+    -- Uncomment the following line to build from source:
     -- build = 'cargo build --release',
     -- build = 'nix run .#build-plugin',
 
@@ -18,20 +18,20 @@ return {
       "giuxtaposition/blink-cmp-copilot",
     },
     opts = {
-      -- 键映射配置
-      -- 预设：
-      -- 'default'（推荐）类似于内置补全的映射（C-y 接受）
-      -- 'super-tab' 类似于 VSCode 的映射（Tab 接受）
-      -- 'enter' 使用 Enter 接受
-      -- 'none' 不使用映射
+      -- Keymap configuration
+      -- Presets:
+      -- 'default' (recommended) similar to built-in completion mappings (C-y to accept)
+      -- 'super-tab' similar to VSCode mappings (Tab to accept)
+      -- 'enter' uses Enter to accept
+      -- 'none' disables mappings
       --
-      -- 所有预设包括以下映射：
-      -- C-Space：打开菜单或如果已打开则打开文档
-      -- C-n/C-p 或 上/下：选择下一个/上一个项目
-      -- C-e：隐藏菜单
-      -- C-k：切换签名帮助（如果 signature.enabled = true）
+      -- All presets include the following mappings:
+      -- C-Space: Open menu or open documentation if already open
+      -- C-n/C-p or Up/Down: Select next/previous item
+      -- C-e: Hide menu
+      -- C-k: Toggle signature help (if signature.enabled = true)
       --
-      -- 查看 :h blink-cmp-config-keymap 以定义您自己的键映射
+      -- See :h blink-cmp-config-keymap to define your own key mappings
       keymap = {
         preset = 'none',
         ['<tab>'] = { 'select_next', 'snippet_backward', 'fallback' },
@@ -39,47 +39,71 @@ return {
         ['<Cr>'] = { 'accept', 'fallback' },
       },
       appearance = {
-        -- 'mono'（默认）适用于 'Nerd Font Mono' 或 'normal' 适用于 'Nerd Font'
-        -- 调整间距以确保图标对齐
+        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+        -- Adjust spacing to ensure icon alignment
         nerd_font_variant = 'mono',
+        -- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
+        kind_icons = {
+          Copilot = "",
+          Text = '󰉿',
+          Method = '󰊕',
+          Function = '󰊕',
+          Constructor = '󰒓',
+
+          Field = '󰜢',
+          Variable = '󰆦',
+          Property = '󰖷',
+
+          Class = '󱡠',
+          Interface = '󱡠',
+          Struct = '󱡠',
+          Module = '󰅩',
+
+          Unit = '󰪚',
+          Value = '󰦨',
+          Enum = '󰦨',
+          EnumMember = '󰦨',
+
+          Keyword = '󰻾',
+          Constant = '󰏿',
+
+          Snippet = '󱄽',
+          Color = '󰏘',
+          File = '󰈔',
+          Reference = '󰬲',
+          Folder = '󰉋',
+          Event = '󱐋',
+          Operator = '󰪚',
+          TypeParameter = '󰬛',
+    },
       },
 
-      -- 命令行特定配置
+      -- Command-line specific configuration
       cmdline = {
         keymap = {
+          ['<CR>'] = { 'accept_and_enter', 'fallback' },
           ['<Tab>'] = { 'show_and_insert', 'select_next' },
           ['<S-Tab>'] = { 'show_and_insert', 'select_prev' },
-          ['<CR>'] = { 'accept_and_enter', 'fallback' },
         },
-
-        sources = {
-          min_keyword_length = function(ctx)
-            -- 输入命令时，仅当关键字长度为 3 个字符或更长时显示建议
-            if ctx.mode == 'cmdline' and string.find(ctx.line, ' ') == nil then
-              return 3
-            end
-            return 0
-          end,
-        },
-        -- 自动显示菜单
+        -- (optionally) automatically show the menu
         completion = {
-          menu = { auto_show = true },
+          menu = {
+            auto_show = true
+          },
           list = {
             selection = {
               preselect = false,
-              auto_insert = true,
             },
           },
         },
       },
-
-      -- 补全配置
       completion = {
         keyword = { range = 'full' },
         ghost_text = {
           enabled = true,
           show_without_selection = true,
         },
+
         menu = {
           auto_show = true,
           draw = {
@@ -93,7 +117,7 @@ return {
                 text = function(ctx)
                   local highlights_info = require("colorful-menu").blink_highlights(ctx)
                   if highlights_info ~= nil then
-                    -- 如果需要，可以向标签添加更多项目
+                    -- Add more items to the label if needed
                     return highlights_info.label
                   else
                     return ctx.label
@@ -123,35 +147,49 @@ return {
         },
       },
 
-      -- 默认启用的提供者列表
-      -- 由于 `opts_extend`，可以在配置的其他地方扩展，而无需重新定义
+      -- List of providers enabled by default
+      -- Can be extended elsewhere in the configuration without redefining due to `opts_extend`
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
         providers = {
+          cmdline = {
+            min_keyword_length = function(ctx)
+              -- when typing a command, only show when the keyword is 3 characters or longer
+              if ctx.mode == 'cmdline' and string.find(ctx.line, ' ') == nil then
+                return 3
+              end
+              return 0
+            end,
+          },
           copilot = {
+            transform_items = function(_, items)
+              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+              local kind_idx = #CompletionItemKind + 1
+              CompletionItemKind[kind_idx] = "Copilot"
+              for _, item in ipairs(items) do
+                item.kind = kind_idx
+              end
+              return items
+            end,
             name = "copilot",
             module = "blink-cmp-copilot",
             score_offset = 100,
             async = true,
-            opts = {
-              kind_icon = "",
-              kind_hl = "DevIconCopilot",
-            },
           },
         },
       },
 
-      -- 模糊匹配器配置
-      -- 默认：Rust 模糊匹配器，具有拼写错误容忍性和显著更好的性能
-      -- 您可以改用 Lua 实现，通过设置 `implementation = "lua"`
-      -- 或在 Rust 模糊匹配器不可用时回退到 Lua 实现
-      -- 通过设置 `implementation = "prefer_rust"`
+      -- Fuzzy matcher configuration
+      -- Default: Rust fuzzy matcher with typo tolerance and significantly better performance
+      -- You can use the Lua implementation instead by setting `implementation = "lua"`
+      -- Or fallback to Lua implementation when Rust fuzzy matcher is unavailable
+      -- by setting `implementation = "prefer_rust"`
       --
-      -- 有关更多信息，请参阅模糊文档
+      -- See fuzzy documentation for more details
       fuzzy = { implementation = "prefer_rust_with_warning" },
     },
 
-    -- 使用默认源扩展选项
+    -- Extend options with default sources
     opts_extend = { "sources.default" },
   },
 }

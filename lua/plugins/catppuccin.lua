@@ -1,5 +1,4 @@
-return
-{
+return {
     "catppuccin/nvim", -- Plugin name
     name = "catppuccin", -- Plugin alias
     priority = 1000, -- Plugin load priority
@@ -20,6 +19,7 @@ return
                 Search = { fg = colors.green }, -- Search results
                 IncSearch = { fg = colors.green }, -- Incremental search
                 CurSearch = { fg = colors.green }, -- Current search
+                MatchParen = { fg = colors.red, bg = colors.surface0 }, -- Matching parentheses
             }
         end,
         integrations = {
@@ -36,11 +36,17 @@ return
                 indentscope_color = "",
             },
             blink_cmp = true,
+            fidget = true,
+            snacks = {
+                enabled = true,
+                indent_scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+            },
+            which_key = true,
             -- For more plugin integrations, see (https://github.com/catppuccin/nvim#integrations)
         },
     },
     init = function() -- Initialization function
-        vim.opt.background = "dark", -- Set background to dark
+        vim.opt.background = "dark" -- Set background to dark
         vim.cmd.colorscheme "catppuccin" -- Apply catppuccin color scheme
-    end
+    end,
 }
