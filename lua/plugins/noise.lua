@@ -36,6 +36,6 @@ return {
     -- 可选插件:
     --   `nvim-notify` 仅在你想使用通知视图时需要。
     --   如果不可用，我们将使用 `mini` 作为回退
-    "rcarriga/nvim-notify",
+--    "rcarriga/nvim-notify",
   },
 }

@@ -1,21 +1,41 @@
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "[Nvim-tree] " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- Default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- Custom mappings
+  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+  vim.keymap.set('n', 'j',     api.tree.change_root_to_parent,                  opts('Open the file'))
+  vim.keymap.set('n', 'l',     api.node.open.edit,                  opts('Open the file'))
+  vim.keymap.set('n', '<leader>tf',     api.tree.collapse_all,                  opts('Fold all directories'))
+  vim.keymap.set('n', '<leader>te',     api.tree.expand_all,                  opts('Expand all directories'))
+end
+
 return {
-  -- 插件：文件树
+  -- Plugin: File tree
   "nvim-tree/nvim-tree.lua",
   version = "*",
   dependencies = {
-    -- 依赖：文件图标
+    -- Dependency: File icons
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
     { "<leader>e", "<CMD>NvimTreeToggle<CR>", mode = { "n" }, desc = "[NvimTree] Toggle NvimTree" },
   },
-  opts = {},
+  opts = {
+    on_attach = my_on_attach,
+  },
   init = function()
-    -- 禁用 netrw 插件
+    -- Disable netrw plugin
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    -- 可选：启用 24 位颜色支持
+    -- Optional: Enable 24-bit color support
     vim.opt.termguicolors = true
   end,
 }

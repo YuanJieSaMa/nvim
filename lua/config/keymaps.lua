@@ -51,5 +51,5 @@ keymap.set("n", "R", ":so<CR>", opts)
 --搜索下一个 上一个 取消高光
 keymap.set(nv,"=", "n",opts)
 keymap.set(nv,"-", "N",opts)
-keymap.set(nv,"<leader>n",":nohlsearch<CR>")
+keymap.set(nv,"<leader><CR>",":nohlsearch<CR>")
 
