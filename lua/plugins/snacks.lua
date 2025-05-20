@@ -24,18 +24,53 @@ return
   },
     keys = {
       -- Git
-      {"<leader>gb", function ()
-        require("snacks").gitbrowse()
-      end, desc = "[Snacks] Git browse"},
+      {
+        "<leader>gb",
+        function()
+          require("snacks").gitbrowse()
+        end,
+        desc = "[Snacks] Git browse",
+      },
+      {
+        "<leader>gg",
+        function()
+          require("snacks").lazygit()
+        end,
+        desc = "[Snacks] Lazygit Toggle",
+      },
 
-      {"<leader>gg", function ()
-        require("snacks").lazygit()
-      end, desc = "[Snacks] Lazygit Toggle"},
+      -- Notifications
+      {
+        "<leader>n",
+        function()
+          require("snacks").picker.notifications()
+        end,
+        desc = "[Snacks] Notification History",
+      },
 
-
-      {"<leader>n", function ()
-        require("snacks").picker.notifications()
-      end, desc = "[Snacks] Notification History"},
+      -- Picker
+      {
+        "<leader>sl",
+        function()
+          Snacks.picker.lines()
+        end,
+        desc = "Buffer Lines",
+      },
+      {
+        "<leader>sg",
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = "Grep",
+      },
+      {
+        "<leader>sw",
+        function()
+          Snacks.picker.grep_word()
+        end,
+        desc = "Visual selection or word",
+        mode = { "n", "x" },
+      },
 
     },
 }
