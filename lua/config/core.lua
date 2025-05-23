@@ -31,3 +31,6 @@ opt.splitbelow = true
 -- 搜索
 opt.ignorecase = true
 opt.smartcase = true
+
+
+opt.timeoutlen = 300

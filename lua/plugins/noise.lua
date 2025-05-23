@@ -1,41 +1,35 @@
 return {
-  -- 插件名称: folke/noice.nvim
-  -- 此插件用于增强 Neovim 的通知和消息系统
+  -- Plugin name: folke/noice.nvim
+  -- This plugin enhances Neovim's notification and message system
   "folke/noice.nvim",
-  event = "VeryLazy", -- 延迟加载事件
+  event = "VeryLazy", -- Lazy loading event
   keys = {
-    {
-      "<leader>h",
-      "<CMD>NoiceHistory<CR>",
-      mode = { "n" },
-      desc = "[Noice] Show Noice History" -- 快捷键描述
-    },
   },
   opts = {
-    -- 在此处添加任何选项
+    -- Add any options here
     lsp = {
-      -- 重写 markdown 渲染，使 **cmp** 和其他插件使用 **Treesitter**
+      -- Override markdown rendering to use **Treesitter** for **cmp** and other plugins
       override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = true, -- 转换输入为 markdown 行
-        ["vim.lsp.util.stylize_markdown"] = true, -- 样式化 markdown
-        ["cmp.entry.get_documentation"] = true, -- 需要 hrsh7th/nvim-cmp
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true, -- Convert input to markdown lines
+        ["vim.lsp.util.stylize_markdown"] = true, -- Stylize markdown
+        ["cmp.entry.get_documentation"] = true, -- Requires hrsh7th/nvim-cmp
       },
     },
-    -- 可以启用预设以简化配置
+    -- Enable presets to simplify configuration
     presets = {
-      bottom_search = true, -- 使用经典的底部命令行进行搜索
-      command_palette = true, -- 将命令行和弹出菜单放在一起
-      long_message_to_split = true, -- 长消息将发送到分屏
-      inc_rename = false, -- 启用 inc-rename.nvim 的输入对话框
-      lsp_doc_border = false, -- 为悬停文档和签名帮助添加边框
+      bottom_search = true, -- Use classic bottom command line for search
+      command_palette = true, -- Group command line and popup menu together
+      long_message_to_split = true, -- Send long messages to a split
+      inc_rename = false, -- Enable input dialog for inc-rename.nvim
+      lsp_doc_border = false, -- Add border to hover docs and signature help
     },
   },
   dependencies = {
-    -- 如果你延迟加载以下任何插件，请确保添加正确的 `module="..."` 条目
+    -- If you lazy load any plugin below, make sure to add the proper `module="..."` entry
     "MunifTanjim/nui.nvim",
-    -- 可选插件:
-    --   `nvim-notify` 仅在你想使用通知视图时需要。
-    --   如果不可用，我们将使用 `mini` 作为回退
---    "rcarriga/nvim-notify",
+    -- Optional plugins:
+    --   `nvim-notify` is only needed if you want to use the notification view.
+    --   If not available, we will fall back to `mini`.
+    -- "rcarriga/nvim-notify",
   },
 }

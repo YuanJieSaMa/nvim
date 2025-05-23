@@ -1,6 +1,7 @@
 return {
   -- Specification for the CodeCompanion.nvim plugin
   "olimorris/codecompanion.nvim",
+  version = "15.4.2",
   dependencies = {
     -- Required dependencies for CodeCompanion.nvim
     "nvim-lua/plenary.nvim",
