@@ -43,7 +43,7 @@ keymap.set(nv, "yJ", "y^", opts)
 keymap.set(nv, "yL", "y$", opts)
 
 --保存 退出 刷新
-keymap.set("n", "S", ":%s/\\r//g<CR>", opts)
+keymap.set("n", "<leader>S", ":%s/\\r//g<CR>", opts)
 keymap.set("n", "Q", ":q<CR>", opts)
 keymap.set("n", "R", ":so<CR>", opts)
 

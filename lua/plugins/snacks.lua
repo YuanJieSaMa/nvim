@@ -137,7 +137,7 @@ return
     words = { enabled = true },
   },
     keys = {
-      -- Git
+     -- Git 
       {
         "<leader>gb",
         function()
@@ -206,6 +206,8 @@ return
         nowait = true,
         desc = "References",
       },
+
+      -- Terminal
       {
         "<leader>tt",
         function()
@@ -213,6 +215,8 @@ return
         end,
         desc = "Ternimal",
       },
+
+      -- Zen Mode
       {
         "<leader>zz",
         function()
@@ -220,5 +224,6 @@ return
         end,
         desc = "Zen",
       },
+
     }
 }
