@@ -41,13 +41,9 @@ keymap.set({"n","x","o"}, "L", "$", opts)
 
 --保存 退出 刷新
 keymap.set("n", "<leader>S", ":%s/\\r//g<CR>", opts)
-keymap.set("n", "Q", ":q<CR>", opts)
 keymap.set("n", "R", ":so<CR>", opts)
 
 --搜索下一个 上一个 取消高光
 keymap.set(nv,"=", "n",opts)
 keymap.set(nv,"-", "N",opts)
 keymap.set(nv,"<leader><CR>",":nohlsearch<CR>")
-
-
-keymap.set({"n","v","i","x"}, "<Tab>", "<Esc>", opts)

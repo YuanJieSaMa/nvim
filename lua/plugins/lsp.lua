@@ -49,6 +49,7 @@ return {
       local lspconfig = require('lspconfig')
 
       lspconfig['lua_ls'].setup({ capabilities = capabilities }) -- Configure Lua LSP
+      lspconfig['html'].setup({ capabilities = capabilities }) -- Configure Html LSP
 
       -- Keymap to show hover information
       vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show hover information" })

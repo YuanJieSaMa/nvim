@@ -26,7 +26,7 @@ return
         { "<A-9>", "<CMD>BufferGoto 9<CR>", mode = { "n" }, desc = "[Buffer] Go to buffer 9" },
         { "<A-j>", "<CMD>BufferPrevious<CR>", mode = { "n" }, desc = "[Buffer] Previous buffer" },
         { "<A-l>", "<CMD>BufferNext<CR>", mode = { "n" }, desc = "[Buffer] Next buffer" },
-        { "<A-q>", "<CMD>BufferClose<CR>", mode = { "n" }, desc = "[Buffer] Close buffer" },
+        { "Q", "<CMD>BufferClose<CR>", mode = { "n" }, desc = "[Buffer] Close buffer" },
     },
     event = { "VeryLazy" },
     opts = {

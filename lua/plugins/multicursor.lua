@@ -21,7 +21,8 @@ return {
 
         -- Disable and enable cursors
         set({ "n", "x" }, "<leader><leader>a", mc.toggleCursor, { desc = "Toggle cursors on and off" })
-
+        set({ "x" }, "<leader>N", mc.insertVisual)
+        set({ "x" }, "<leader>A", mc.appendVisual)
 
         -- Add a keymap layer for cursor-specific actions
         mc.addKeymapLayer(function(layerSet)
