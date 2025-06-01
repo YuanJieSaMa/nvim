@@ -155,7 +155,7 @@ return
 
       -- Notifications
       {
-        "<leader>n",
+        "<leader><leader>n",
         function()
           require("snacks").picker.notifications()
         end,

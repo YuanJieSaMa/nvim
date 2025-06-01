@@ -35,12 +35,9 @@ keymap.set(nv, "n", "i", opts)
 keymap.set(nv, "N", "I", opts)
 keymap.set(nv, "I", "5k", opts)
 keymap.set(nv, "K", "5j", opts)
-keymap.set(nv, "J", "^", opts)
-keymap.set(nv, "L", "$", opts)
+keymap.set({"n","x","o"}, "J", "^", opts)
+keymap.set({"n","x","o"}, "L", "$", opts)
 
---复制
-keymap.set(nv, "yJ", "y^", opts)
-keymap.set(nv, "yL", "y$", opts)
 
 --保存 退出 刷新
 keymap.set("n", "<leader>S", ":%s/\\r//g<CR>", opts)
@@ -51,3 +48,6 @@ keymap.set("n", "R", ":so<CR>", opts)
 keymap.set(nv,"=", "n",opts)
 keymap.set(nv,"-", "N",opts)
 keymap.set(nv,"<leader><CR>",":nohlsearch<CR>")
+
+
+keymap.set({"n","v","i","x"}, "<Tab>", "<Esc>", opts)

@@ -10,17 +10,18 @@ return {
         local set = vim.keymap.set
 
         -- Add cursors to all matches of the search
-        set("n", "<leader>/A", mc.searchAllAddCursors)
-        set({ "n", "x" }, "<leader>A", mc.matchAllAddCursors)
+        set("n", "<leader>/A", mc.searchAllAddCursors, { desc = "Add cursors to all matches of the search" })
+        set({ "n", "x" }, "<leader>A", mc.matchAllAddCursors, { desc = "Add cursors to all matches of the search in normal and visual modes" })
 
         -- Add or skip adding a new cursor by matching word/selection
-        set({ "n", "x" }, "<leader>n", function() mc.matchAddCursor(1) end)
-        set({ "n", "x" }, "<leader>b", function() mc.matchSkipCursor(1) end)
-        set({ "n", "x" }, "<leader>N", function() mc.matchAddCursor(-1) end)
-        set({ "n", "x" }, "<leader>B", function() mc.matchSkipCursor(-1) end)
+        set({ "n", "x" }, "<leader>n", function() mc.matchAddCursor(1) end, { desc = "Add a new cursor by matching word/selection forward" })
+        set({ "n", "x" }, "<leader>b", function() mc.matchSkipCursor(1) end, { desc = "Skip adding a new cursor by matching word/selection forward" })
+        set({ "n", "x" }, "<leader>N", function() mc.matchAddCursor(-1) end, { desc = "Add a new cursor by matching word/selection backward" })
+        set({ "n", "x" }, "<leader>B", function() mc.matchSkipCursor(-1) end, { desc = "Skip adding a new cursor by matching word/selection backward" })
 
         -- Disable and enable cursors
-        set({ "n", "x" }, "<c-q>", mc.toggleCursor)
+        set({ "n", "x" }, "<leader><leader>a", mc.toggleCursor, { desc = "Toggle cursors on and off" })
+
 
         -- Add a keymap layer for cursor-specific actions
         mc.addKeymapLayer(function(layerSet)
